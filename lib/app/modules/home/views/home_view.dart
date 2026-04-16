@@ -37,13 +37,13 @@ class _HomeViewState extends State<HomeView> {
               ],
             ),
           ),
-          Spacing(),
+          Spacing(height: 30),
           Container(
             padding: pageWrapper(),
             width: Get.width,
             child: Image.asset('assets/banner.png'),
           ),
-          Spacing(),
+          Spacing(height: 30),
           Padding(
             padding: pageWrapper(),
             child: Container(
@@ -94,7 +94,52 @@ class _HomeViewState extends State<HomeView> {
               ),
             ),
           ),
-          Spacing(height: 20),
+          Spacing(height: 30),
+          Padding(
+            padding: pageWrapper(),
+            child: Container(
+              padding: EdgeInsets.all(12),
+              decoration: BoxDecoration(
+                borderRadius: XTheme.borderRadius(radius: 8),
+                color: XColor.netral2(),
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text('Our \nShavers', style: h3n),
+                      Text(
+                        'See All',
+                        style: h3n.copyWith(color: XColor.primary()),
+                      ),
+                    ],
+                  ),
+                  Spacing(height: 20),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      MenuItem(
+                        title: 'John',
+                        icon: 'https://thispersondoesnotexist.com',
+                      ),
+                      MenuItem(
+                        title: 'Mark',
+                        icon: 'https://thispersondoesnotexist.com',
+                      ),
+                      MenuItem(
+                        title: 'Jason',
+                        icon: 'https://thispersondoesnotexist.com/',
+                      ),
+                    ],
+                  ),
+                  Spacing()
+                ],
+              ),
+            ),
+          )
         ],
       )),
     );
