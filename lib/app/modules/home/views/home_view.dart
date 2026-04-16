@@ -1,23 +1,43 @@
-import 'package:flutter/material.dart';
+import '../../../export.dart';
 
-import 'package:get/get.dart';
+class HomeView extends StatefulWidget {
+  const HomeView({super.key});
 
-import '../controllers/home_controller.dart';
+  @override
+  State<HomeView> createState() => _HomeViewState();
+}
 
-class HomeView extends GetView<HomeController> {
+class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('HomeView'),
-        centerTitle: true,
-      ),
-      body: Center(
-        child: Text(
-          'HomeView is working',
-          style: TextStyle(fontSize: 20),
-        ),
-      ),
+      body: SafeArea(
+          child: Column(
+        children: [
+          Spacing(),
+          Padding(
+            padding: pageWrapper(),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text('nobre', style: h7n),
+                Container(
+                  padding: EdgeInsets.all(5),
+                  decoration: BoxDecoration(
+                    borderRadius: XTheme.borderRadius(),
+                    color: XColor.netral2(),
+                  ),
+                  child: SvgPicture.asset(
+                    'assets/notification.svg',
+                    color: XColor.netral6(),
+                  ),
+                )
+              ],
+            ),
+          ),
+          Spacing(height: 20),
+        ],
+      )),
     );
   }
 }
