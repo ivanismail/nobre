@@ -35,7 +35,11 @@ class _HomeViewState extends State<HomeView> {
               ],
             ),
           ),
-          Spacing(height: 20),
+          Spacing(),
+          Container(
+            width: Get.width,
+            child: Image.asset('assets/banner.png'),
+          )
         ],
       )),
     );
