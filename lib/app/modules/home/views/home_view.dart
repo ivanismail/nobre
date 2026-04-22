@@ -1,3 +1,5 @@
+import 'package:nobre/app/routes/app_pages.dart';
+
 import '../../../export.dart';
 import '../../../widgets/cache_image.dart';
 import '../../../widgets/ripple.dart';
@@ -61,6 +63,7 @@ class _HomeViewState extends State<HomeView> {
                     children: [
                       Text('Our \nService', style: h3n),
                       XRipple(
+                        onTap: () => Get.toNamed(Routes.SERVICE),
                         child: Text(
                           'See All',
                           style: h3n.copyWith(color: XColor.primary()),
