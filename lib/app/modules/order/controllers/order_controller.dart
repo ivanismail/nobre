@@ -1,23 +1,22 @@
 import 'package:get/get.dart';
 
 class OrderController extends GetxController {
-  //TODO: Implement OrderController
+  DateTime selectedDay = DateTime.now();
 
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
+  var selectedTime = "".obs;
+
+  final times = [
+    "9:00",
+    "10:00",
+    "11:00",
+    "12:00",
+    "13:00",
+    "14:00",
+    "15:00",
+    "16:00",
+  ];
+
+  void selectTime(String time) {
+    selectedTime.value = time;
   }
-
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {
-    super.onClose();
-  }
-
-  void increment() => count.value++;
 }
