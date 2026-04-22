@@ -1,4 +1,5 @@
 import 'package:nobre/app/modules/service/controllers/service_controller.dart';
+import 'package:nobre/app/routes/app_pages.dart';
 
 import '../../../export.dart';
 import '../../../widgets/ripple.dart';
@@ -165,6 +166,7 @@ class ServiceCard extends StatelessWidget {
     return Column(
       children: [
         XRipple(
+          onTap: () => Get.toNamed(Routes.ORDER),
           child: Container(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
