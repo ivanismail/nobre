@@ -1,23 +1,34 @@
-import 'package:flutter/material.dart';
+import '../../../export.dart';
 
-import 'package:get/get.dart';
+class ServiceView extends StatefulWidget {
+  const ServiceView({super.key});
 
-import '../controllers/service_controller.dart';
+  @override
+  State<ServiceView> createState() => _ServiceViewState();
+}
 
-class ServiceView extends GetView<ServiceController> {
-  const ServiceView({Key? key}) : super(key: key);
+class _ServiceViewState extends State<ServiceView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('ServiceView'),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
         centerTitle: true,
-      ),
-      body: const Center(
-        child: Text(
-          'ServiceView is working',
-          style: TextStyle(fontSize: 20),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: XColor.netral8()),
+          onPressed: () => Get.back(),
         ),
+        title: Text(
+          "Hair Cut",
+          style: h5b.copyWith(color: XColor.netral8()),
+        ),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.search, color: XColor.netral8()),
+            onPressed: () {},
+          )
+        ],
       ),
     );
   }
