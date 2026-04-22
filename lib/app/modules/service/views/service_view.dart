@@ -1,6 +1,7 @@
 import 'package:nobre/app/modules/service/controllers/service_controller.dart';
 
 import '../../../export.dart';
+import '../../../widgets/ripple.dart';
 
 class ServiceView extends StatefulWidget {
   const ServiceView({super.key});
@@ -113,10 +114,94 @@ class _ServiceViewState extends State<ServiceView> {
                       );
                     }).toList(),
                   )),
+
+              Spacing(height: 20),
+
+              /// LIST SERVICE
+              Expanded(
+                child: SingleChildScrollView(
+                  child: ListService(),
+                ),
+              )
             ],
           ),
         ),
       ),
+    );
+  }
+}
+
+class ListService extends StatelessWidget {
+  // final TransactionController controller;
+  // final List<DataTransaction> listService;
+  const ListService({
+    Key? key,
+    // required this.controller,
+    // required this.listService,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      // itemCount: listService.length,
+      itemCount: 10,
+      padding: EdgeInsets.zero,
+      shrinkWrap: true,
+      primary: true,
+      physics: NeverScrollableScrollPhysics(),
+      itemBuilder: (BuildContext context, int index) {
+        // DataService current = listService[index];
+        return ServiceCard();
+      },
+    );
+  }
+}
+
+class ServiceCard extends StatelessWidget {
+  const ServiceCard({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        XRipple(
+          child: Container(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    Container(
+                      padding: EdgeInsets.all(8),
+                      width: 64,
+                      height: 64,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12),
+                        color: XColor.primaryLight(),
+                      ),
+                      child: SvgPicture.asset(
+                        'assets/beard.svg',
+                        height: 32,
+                      ),
+                    ),
+                    Spacing(width: 12),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('Potong Rambut'),
+                        Text('Estimasi 30 menit'),
+                        Text('Rp. 18.000,-'),
+                      ],
+                    ),
+                  ],
+                ),
+                SvgPicture.asset('assets/arrow-right.svg', width: 24)
+              ],
+            ),
+          ),
+        ),
+        Spacing()
+      ],
     );
   }
 }

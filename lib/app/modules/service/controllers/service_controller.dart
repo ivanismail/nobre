@@ -5,29 +5,6 @@ class ServiceController extends GetxController {
 
   final categories = ["All", "Cut", "Color", "Beard"];
 
-  final services = [
-    {
-      "name": "Beard",
-      "duration": "25 min",
-      "price": "17-30\$",
-    },
-    {
-      "name": "Beard",
-      "duration": "25 min",
-      "price": "17-30\$",
-    },
-    {
-      "name": "Beard",
-      "duration": "25 min",
-      "price": "17-30\$",
-    },
-    {
-      "name": "Beard",
-      "duration": "25 min",
-      "price": "17-30\$",
-    },
-  ];
-
   void changeCategory(String category) {
     selectedCategory.value = category;
   }
