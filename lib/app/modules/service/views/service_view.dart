@@ -30,6 +30,57 @@ class _ServiceViewState extends State<ServiceView> {
           )
         ],
       ),
+      body: SafeArea(
+        child: Padding(
+          padding: pageWrapper(),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              //* BANNER
+              Container(
+                width: Get.width,
+                padding: EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  gradient: LinearGradient(
+                    colors: [Colors.blue, Colors.blueAccent],
+                  ),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "What kind of hair suits you?",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(height: 8),
+                    Text(
+                      "Start now to find out what kind of hair suits you",
+                      style: TextStyle(color: Colors.white70),
+                    ),
+                    SizedBox(height: 12),
+                    ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.white,
+                        foregroundColor: Colors.black,
+                      ),
+                      child: Text("Start"),
+                    )
+                  ],
+                ),
+              ),
+              Spacing(height: 20),
+              Text("Our", style: h4n),
+              Text("Services", style: h5b),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
