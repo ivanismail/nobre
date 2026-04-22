@@ -1,3 +1,5 @@
+import 'package:nobre/app/modules/service/controllers/service_controller.dart';
+
 import '../../../export.dart';
 
 class ServiceView extends StatefulWidget {
@@ -8,6 +10,7 @@ class ServiceView extends StatefulWidget {
 }
 
 class _ServiceViewState extends State<ServiceView> {
+  final ServiceController controller = Get.find<ServiceController>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,7 +46,7 @@ class _ServiceViewState extends State<ServiceView> {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                   gradient: LinearGradient(
-                    colors: [Colors.blue, Colors.blueAccent],
+                    colors: [XColor.primary(), Colors.blueAccent],
                   ),
                 ),
                 child: Column(
@@ -77,6 +80,39 @@ class _ServiceViewState extends State<ServiceView> {
               Spacing(height: 20),
               Text("Our", style: h4n),
               Text("Services", style: h5b),
+              Spacing(height: 20),
+
+              /// CATEGORY
+              Obx(() => Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: controller.categories.map((cat) {
+                      final isSelected =
+                          controller.selectedCategory.value == cat;
+
+                      return GestureDetector(
+                        onTap: () => controller.changeCategory(cat),
+                        child: Container(
+                          padding:
+                              EdgeInsets.symmetric(horizontal: 24, vertical: 4),
+                          decoration: BoxDecoration(
+                            color: isSelected
+                                ? XColor.primary()
+                                : Colors.transparent,
+                            borderRadius: BorderRadius.circular(20),
+                            border: Border.all(color: XColor.primary()),
+                          ),
+                          child: Text(
+                            cat,
+                            style: TextStyle(
+                              color: isSelected
+                                  ? XColor.netral1()
+                                  : XColor.primary(),
+                            ),
+                          ),
+                        ),
+                      );
+                    }).toList(),
+                  )),
             ],
           ),
         ),

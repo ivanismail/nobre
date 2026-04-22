@@ -1,23 +1,34 @@
 import 'package:get/get.dart';
 
 class ServiceController extends GetxController {
-  //TODO: Implement ServiceController
+  var selectedCategory = "Beard".obs;
 
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
+  final categories = ["All", "Cut", "Color", "Beard"];
+
+  final services = [
+    {
+      "name": "Beard",
+      "duration": "25 min",
+      "price": "17-30\$",
+    },
+    {
+      "name": "Beard",
+      "duration": "25 min",
+      "price": "17-30\$",
+    },
+    {
+      "name": "Beard",
+      "duration": "25 min",
+      "price": "17-30\$",
+    },
+    {
+      "name": "Beard",
+      "duration": "25 min",
+      "price": "17-30\$",
+    },
+  ];
+
+  void changeCategory(String category) {
+    selectedCategory.value = category;
   }
-
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {
-    super.onClose();
-  }
-
-  void increment() => count.value++;
 }
