@@ -7,6 +7,7 @@ abstract class Routes {
   static const WRAPPER = _Paths.WRAPPER;
   static const SERVICE = _Paths.SERVICE;
   static const ORDER = _Paths.ORDER;
+  static const PROFILE = _Paths.PROFILE;
 }
 
 abstract class _Paths {
@@ -15,4 +16,5 @@ abstract class _Paths {
   static const WRAPPER = '/wrapper';
   static const SERVICE = '/service';
   static const ORDER = '/order';
+  static const PROFILE = '/profile';
 }
