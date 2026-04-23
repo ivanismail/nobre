@@ -10,6 +10,7 @@ abstract class Routes {
   static const PROFILE = _Paths.PROFILE;
   static const TRANSACTION = _Paths.TRANSACTION;
   static const AUTH = _Paths.AUTH;
+  static const REGISTER = _Paths.REGISTER;
 }
 
 abstract class _Paths {
@@ -21,4 +22,5 @@ abstract class _Paths {
   static const PROFILE = '/profile';
   static const TRANSACTION = '/transaction';
   static const AUTH = '/auth';
+  static const REGISTER = '/register';
 }
