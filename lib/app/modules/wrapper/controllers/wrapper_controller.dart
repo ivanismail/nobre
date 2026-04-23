@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 
 import '../../../widgets/bottom_navbar.dart';
 import '../../home/views/home_view.dart';
+import '../../profile/views/profile_view.dart';
 
 class WrapperController extends GetxController {
   final pageIndex = 0.obs;
@@ -12,7 +13,7 @@ class WrapperController extends GetxController {
     return [
       HomeView(),
       HomeView(),
-      HomeView(),
+      ProfileView(),
     ];
   }
 
