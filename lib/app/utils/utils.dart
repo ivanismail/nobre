@@ -1,4 +1,7 @@
+import 'package:get_storage/get_storage.dart';
+
 import '../export.dart';
+import '../storage.dart';
 
 Widget displayNone() => SizedBox.shrink();
 
@@ -42,3 +45,7 @@ String ribuan(value, {String separator = '.', String trailing = ''}) {
           (Match m) => '${m[1]}$separator') +
       trailing;
 }
+
+bool checkToken() =>
+    GetStorage().read(XStorage.TOKEN) != '' &&
+    GetStorage().read(XStorage.TOKEN) != null;
