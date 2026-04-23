@@ -9,6 +9,7 @@ abstract class Routes {
   static const ORDER = _Paths.ORDER;
   static const PROFILE = _Paths.PROFILE;
   static const TRANSACTION = _Paths.TRANSACTION;
+  static const AUTH = _Paths.AUTH;
 }
 
 abstract class _Paths {
@@ -19,4 +20,5 @@ abstract class _Paths {
   static const ORDER = '/order';
   static const PROFILE = '/profile';
   static const TRANSACTION = '/transaction';
+  static const AUTH = '/auth';
 }
