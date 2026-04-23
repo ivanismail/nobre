@@ -1,21 +1,58 @@
-import 'package:flutter/material.dart';
+import 'package:nobre/app/widgets/text_field.dart';
 
-import 'package:get/get.dart';
+import '../../../export.dart';
+import '../../../widgets/buttons.dart';
 
-import '../controllers/auth_controller.dart';
+class AuthView extends StatefulWidget {
+  const AuthView({super.key});
 
-class AuthView extends GetView<AuthController> {
+  @override
+  State<AuthView> createState() => _AuthViewState();
+}
+
+class _AuthViewState extends State<AuthView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('AuthView'),
-        centerTitle: true,
-      ),
-      body: Center(
-        child: Text(
-          'AuthView is working',
-          style: TextStyle(fontSize: 20),
+      body: SafeArea(
+        child: Center(
+          child: Container(
+            color: XColor.primary(),
+            height: Get.height,
+            width: Get.width,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Spacing(height: 22),
+                Container(
+                  padding: pageWrapper(),
+                  margin: pageWrapper(),
+                  decoration: BoxDecoration(
+                    borderRadius: XTheme.borderRadius(),
+                    color: XColor.netral1(),
+                  ),
+                  child: Column(
+                    children: [
+                      Spacing(height: 22),
+                      Text('Nobre', style: h7b),
+                      Spacing(height: 22),
+                      XTextField(labelText: 'No Handphone'),
+                      XTextField(labelText: 'Password'),
+                      Spacing(height: 20),
+                      Container(
+                        width: Get.width,
+                        child: SolidButton(
+                          text: 'Masuk',
+                          onTap: () {},
+                        ),
+                      ),
+                      Spacing(),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
         ),
       ),
     );
