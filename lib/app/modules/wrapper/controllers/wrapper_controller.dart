@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:nobre/app/modules/transaction/views/transaction_view.dart';
 
 import '../../../widgets/bottom_navbar.dart';
 import '../../home/views/home_view.dart';
@@ -12,7 +13,7 @@ class WrapperController extends GetxController {
   List<Widget> get currentPage {
     return [
       HomeView(),
-      HomeView(),
+      TransactionView(),
       ProfileView(),
     ];
   }

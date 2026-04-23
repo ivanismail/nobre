@@ -8,6 +8,8 @@ import '../modules/profile/bindings/profile_binding.dart';
 import '../modules/profile/views/profile_view.dart';
 import '../modules/service/bindings/service_binding.dart';
 import '../modules/service/views/service_view.dart';
+import '../modules/transaction/bindings/transaction_binding.dart';
+import '../modules/transaction/views/transaction_view.dart';
 import '../modules/wrapper/bindings/wrapper_binding.dart';
 import '../modules/wrapper/views/wrapper_view.dart';
 
@@ -43,6 +45,11 @@ class AppPages {
       name: _Paths.PROFILE,
       page: () => ProfileView(),
       binding: ProfileBinding(),
+    ),
+    GetPage(
+      name: _Paths.TRANSACTION,
+      page: () => TransactionView(),
+      binding: TransactionBinding(),
     ),
   ];
 }
