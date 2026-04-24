@@ -88,23 +88,13 @@ class _HomeViewState extends State<HomeView> {
                       Spacing(height: 20),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          MenuItem(
+                        children: controller.listCategory.map((item) {
+                          return MenuItem(
                             tipe: 'menu',
-                            title: 'Cut',
-                            icon: 'cut',
-                          ),
-                          MenuItem(
-                            tipe: 'menu',
-                            title: 'Beard',
-                            icon: 'beard',
-                          ),
-                          MenuItem(
-                            tipe: 'menu',
-                            title: 'Color',
-                            icon: 'color',
-                          ),
-                        ],
+                            title: item.categoryName ?? '',
+                            icon: item.categoryName?.toLowerCase() ?? '',
+                          );
+                        }).toList(),
                       ),
                       Spacing()
                     ],
