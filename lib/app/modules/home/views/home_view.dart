@@ -92,7 +92,13 @@ class _HomeViewState extends State<HomeView> {
                           return MenuItem(
                             tipe: 'menu',
                             title: item.categoryName ?? '',
-                            icon: item.categoryName?.toLowerCase() ?? '',
+                            icon: item.categoryName?.toLowerCase() ==
+                                    'potong rambut'
+                                ? 'cut'
+                                : item.categoryName?.toLowerCase() ==
+                                        'Potong Jenggot'
+                                    ? 'beard'
+                                    : 'color',
                           );
                         }).toList(),
                       ),
