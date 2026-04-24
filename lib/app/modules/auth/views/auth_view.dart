@@ -1,3 +1,4 @@
+import 'package:nobre/app/modules/auth/controllers/auth_controller.dart';
 import 'package:nobre/app/widgets/text_field.dart';
 
 import '../../../export.dart';
@@ -13,6 +14,8 @@ class AuthView extends StatefulWidget {
 }
 
 class _AuthViewState extends State<AuthView> {
+  final AuthController controller = Get.find<AuthController>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,10 +43,12 @@ class _AuthViewState extends State<AuthView> {
                     XTextField(
                       labelText: 'No Handphone',
                       hintText: '081234567xxx',
+                      controller: controller.phoneNumber,
                     ),
                     XTextField(
                       labelText: 'Password',
                       hintText: 'Password anda',
+                      controller: controller.pass,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
