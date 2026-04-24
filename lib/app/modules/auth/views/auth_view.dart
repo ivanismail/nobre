@@ -78,7 +78,7 @@ class _AuthViewState extends State<AuthView> {
                       width: Get.width,
                       child: SolidButton(
                         text: 'Masuk',
-                        onTap: () {},
+                        onTap: () => controller.doLogin(),
                       ),
                     ),
                     Spacing(height: 22),
