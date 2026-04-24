@@ -1,3 +1,4 @@
+import 'package:nobre/app/modules/home/controllers/home_controller.dart';
 import 'package:nobre/app/routes/app_pages.dart';
 
 import '../../../export.dart';
@@ -12,139 +13,154 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
+  final HomeController controller = Get.put(HomeController());
+  @override
+  void initState() {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      controller.initHome();
+    });
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-          child: Column(
-        children: [
-          Spacing(),
-          Padding(
-            padding: pageWrapper(),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text('nobre', style: h7n),
-                Container(
-                  padding: EdgeInsets.all(5),
+    return GetBuilder<HomeController>(
+      init: HomeController(),
+      initState: (_) {},
+      builder: (_) {
+        return Scaffold(
+          body: SafeArea(
+              child: Column(
+            children: [
+              Spacing(),
+              Padding(
+                padding: pageWrapper(),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('nobre', style: h7n),
+                    Container(
+                      padding: EdgeInsets.all(5),
+                      decoration: BoxDecoration(
+                        borderRadius: XTheme.borderRadius(),
+                        color: XColor.netral2(),
+                      ),
+                      child: SvgPicture.asset(
+                        'assets/notification.svg',
+                        color: XColor.netral6(),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              Spacing(height: 30),
+              Container(
+                padding: pageWrapper(),
+                width: Get.width,
+                child: Image.asset('assets/banner.png'),
+              ),
+              Spacing(height: 30),
+              Padding(
+                padding: pageWrapper(),
+                child: Container(
+                  padding: EdgeInsets.all(12),
                   decoration: BoxDecoration(
-                    borderRadius: XTheme.borderRadius(),
+                    borderRadius: XTheme.borderRadius(radius: 8),
                     color: XColor.netral2(),
                   ),
-                  child: SvgPicture.asset(
-                    'assets/notification.svg',
-                    color: XColor.netral6(),
-                  ),
-                )
-              ],
-            ),
-          ),
-          Spacing(height: 30),
-          Container(
-            padding: pageWrapper(),
-            width: Get.width,
-            child: Image.asset('assets/banner.png'),
-          ),
-          Spacing(height: 30),
-          Padding(
-            padding: pageWrapper(),
-            child: Container(
-              padding: EdgeInsets.all(12),
-              decoration: BoxDecoration(
-                borderRadius: XTheme.borderRadius(radius: 8),
-                color: XColor.netral2(),
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Our \nService', style: h3n),
-                      XRipple(
-                        onTap: () => Get.toNamed(Routes.SERVICE),
-                        child: Text(
-                          'See All',
-                          style: h3n.copyWith(color: XColor.primary()),
-                        ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text('Our \nService', style: h3n),
+                          XRipple(
+                            onTap: () => Get.toNamed(Routes.SERVICE),
+                            child: Text(
+                              'See All',
+                              style: h3n.copyWith(color: XColor.primary()),
+                            ),
+                          ),
+                        ],
                       ),
+                      Spacing(height: 20),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          MenuItem(
+                            tipe: 'menu',
+                            title: 'Cut',
+                            icon: 'cut',
+                          ),
+                          MenuItem(
+                            tipe: 'menu',
+                            title: 'Beard',
+                            icon: 'beard',
+                          ),
+                          MenuItem(
+                            tipe: 'menu',
+                            title: 'Color',
+                            icon: 'color',
+                          ),
+                        ],
+                      ),
+                      Spacing()
                     ],
                   ),
-                  Spacing(height: 20),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                ),
+              ),
+              Spacing(height: 30),
+              Padding(
+                padding: pageWrapper(),
+                child: Container(
+                  padding: EdgeInsets.all(12),
+                  decoration: BoxDecoration(
+                    borderRadius: XTheme.borderRadius(radius: 8),
+                    color: XColor.netral2(),
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      MenuItem(
-                        tipe: 'menu',
-                        title: 'Cut',
-                        icon: 'cut',
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text('Our \nShavers', style: h3n),
+                          Text(
+                            'See All',
+                            style: h3n.copyWith(color: XColor.primary()),
+                          ),
+                        ],
                       ),
-                      MenuItem(
-                        tipe: 'menu',
-                        title: 'Beard',
-                        icon: 'beard',
+                      Spacing(height: 20),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          MenuItem(
+                            title: 'John',
+                            icon: 'https://thispersondoesnotexist.com',
+                          ),
+                          MenuItem(
+                            title: 'Mark',
+                            icon: 'https://thispersondoesnotexist.com',
+                          ),
+                          MenuItem(
+                            title: 'Jason',
+                            icon: 'https://thispersondoesnotexist.com/',
+                          ),
+                        ],
                       ),
-                      MenuItem(
-                        tipe: 'menu',
-                        title: 'Color',
-                        icon: 'color',
-                      ),
+                      Spacing()
                     ],
                   ),
-                  Spacing()
-                ],
-              ),
-            ),
-          ),
-          Spacing(height: 30),
-          Padding(
-            padding: pageWrapper(),
-            child: Container(
-              padding: EdgeInsets.all(12),
-              decoration: BoxDecoration(
-                borderRadius: XTheme.borderRadius(radius: 8),
-                color: XColor.netral2(),
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text('Our \nShavers', style: h3n),
-                      Text(
-                        'See All',
-                        style: h3n.copyWith(color: XColor.primary()),
-                      ),
-                    ],
-                  ),
-                  Spacing(height: 20),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      MenuItem(
-                        title: 'John',
-                        icon: 'https://thispersondoesnotexist.com',
-                      ),
-                      MenuItem(
-                        title: 'Mark',
-                        icon: 'https://thispersondoesnotexist.com',
-                      ),
-                      MenuItem(
-                        title: 'Jason',
-                        icon: 'https://thispersondoesnotexist.com/',
-                      ),
-                    ],
-                  ),
-                  Spacing()
-                ],
-              ),
-            ),
-          )
-        ],
-      )),
+                ),
+              )
+            ],
+          )),
+        );
+      },
     );
   }
 }

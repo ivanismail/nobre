@@ -1,20 +1,10 @@
-import 'package:get/get.dart';
+import '../../../export.dart';
+import '../../../routes/app_pages.dart';
 
 class HomeController extends GetxController {
-  //TODO: Implement HomeController
-
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
+  Future initHome() async {
+    if (!checkToken()) {
+      Get.offAllNamed(Routes.AUTH);
+    }
   }
-
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {}
-  void increment() => count.value++;
 }
